@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ריסטרט - הדרך שלך לשינוי מעמיק</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #7c98b3;
+            --secondary: #e8f1f8;
+            --accent: #4a6fa5;
+            --text: #2c3e50;
+            --background: #ffffff;
+            --section-bg: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .header-content p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        section:nth-child(even) {
+            background: var(--section-bg);
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stage-item {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .unique-features {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+        }
+
+        .unique-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .unique-features li {
+            margin-bottom: 1rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .unique-features li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            right: 0;
+        }
+
+        .service-includes {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .vision-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--section-bg);
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent);
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>ריסטרט – הדרך שלך לשינוי מעמיק ולהגשמה עצמית</h1>
+            <p>תוכנית של 12 שיעורים שמעצבת מחדש את החשיבה וההרגלים שלך, עם כלים מעשיים ומדידים להצלחה אמיתית.</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="intro-text">
+                <p>ריסטרט היא יותר מרק תוכנית – זו דרך חיים. תוכנית זו כוללת שיעור שבועי שמלווה אותך בתהליך של שינוי אישי עמוק. כל שבועיים נעדכן את ההתקדמות שלך ונציב יעדים חדשים, ובכל שיעור תקבל משימה שתפתח אצלך הרגלים, חשיבה וגישה חדשה לחיים.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">יתרונות התוכנית</h2>
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>קורס עומק שבועי</h3>
+                    <p>שמביא אותך להישגים מדידים בכל שלב</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>כלים ומיומנויות</h3>
+                    <p>הקניית כלים ומיומנויות שמובילים לשינוי מתמשך</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>עדכוני מצב</h3>
+                    <p>עדכוני מצב כל שבועיים כדי לבדוק ולעקוב אחר התקדמותך</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>משימות יישומיות</h3>
+                    <p>משימות יישומיות לשינוי תפיסות והרגלים</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>תמיכה מתמשכת</h3>
+                    <p>תמיכה מתמשכת וליווי מעמיק לאורך כל הדרך</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">איך ריסטרט עובד?</h2>
+            <div class="stages">
+                <div class="stage-item">
+                    <h3>שלב 1</h3>
+                    <p>בחינה אישית של החסמים והאתגרים העיקריים שלך</p>
+                </div>
+                <div class="stage-item">
+                    <h3>שלב 2</h3>
+                    <p>יצירת תשתית חזקה לשינוי על ידי בניית הרגלים חדשים</p>
+                </div>
+                <div class="stage-item">
+                    <h3>שלב 3</h3>
+                    <p>תרגול ושימור השינוי באמצעות משימות מעמיקות</p>
+                </div>
+                <div class="stage-item">
+                    <h3>שלב 4</h3>
+                    <p>ליווי מקצועי ומעקב צמוד כדי להבטיח את הצלחתך</p>
+                </div>
+                <div class="stage-item">
+                    <h3>שלב 5</h3>
+                    <p>הגשמה עצמית ויצירת שינוי שישאר איתך לתמיד</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">למה ריסטרט זה בדיוק מה שאתה צריך?</h2>
+            <div class="unique-features">
+                <ul>
+                    <li>ריסטרט מבוססת על תהליך עמוק שמוביל לתוצאות יציבות ולא לתוצאות זמניות</li>
+                    <li>המשימות המעשיות אחרי כל שיעור נועדו להפוך את הידע לפעולה ולשינוי אמיתי</li>
+                    <li>התוכנית מותאמת בדיוק לאנשים שמחפשים לא רק לשנות – אלא להצליח וליצור שינוי שמשפיע לאורך זמן</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="container">
+            <h2 class="section-title">חזון עולמי של שינוי</h2>
+            <p>בואו וניצור שינוי בחיים יחד – כזה שיוביל אתכם לאיכות חיים חדשה, עם כלים ברורים להגשמה עצמית ושיפור מתמיד.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">מה כולל השירות</h2>
+            <div class="service-includes">
+                <ul>
+                    <li>שיעור שבועי באורך 12 שבועות</li>
+                    <li>עדכוני מצב ומעקב אישי כל שבועיים</li>
+                    <li>משימות התפתחות ושינוי אישי בסיום כל שיעור</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">סיפורי הצלחה</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p>"ריסטרט נתנה לי את הכוח להפוך את השינוי לחלום שמתממש – אני לא אותו אדם."</p>
+                    <h4>- דנה, 37</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"מצאתי דרך חדשה להיות מי שאני רוצה להיות, והתחלתי להגשים את עצמי באמת."</p>
+                    <h4>- אבי, 42</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">שאלות נפוצות</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3>למה התוכנית מחולקת לשיעורים שבועיים?</h3>
+                    <p>כדי לבנות תהליך עמוק ומדוד שמוביל לשינוי קבוע ואמית
